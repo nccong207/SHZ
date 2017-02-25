@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\CDTDebug\bin\Debug\Plugins\HTA\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -39,11 +39,11 @@
   <ItemGroup>
     <Reference Include="CDTDatabase, Version=1.0.4417.20610, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Lap trinh\VanTho\Working\CDT\bin\Debug\CDTDatabase.dll</HintPath>
+      <HintPath>..\..\Library\CDTDatabase.dll</HintPath>
     </Reference>
     <Reference Include="CDTLib, Version=1.0.4328.27105, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Lap trinh\VanTho\Working\CDT\bin\Debug\CDTLib.dll</HintPath>
+      <HintPath>..\..\Library\CDTLib.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v7.2, Version=7.2.5.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v7.2.Compact, Version=7.2.5.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
@@ -54,7 +54,7 @@
     <Reference Include="DevExpress.XtraVerticalGrid.v7.2, Version=7.2.5.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
     <Reference Include="Plugins, Version=1.0.4417.20610, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Lap trinh\VanTho\Working\CDT\bin\Debug\Plugins.dll</HintPath>
+      <HintPath>..\..\Library\Plugins.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
