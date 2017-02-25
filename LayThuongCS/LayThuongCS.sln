@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayThuongCS", "LayThuongCS.csproj", "{97F390F0-DACB-440E-B7DD-202BB25032F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinhLuongNV", "..\TinhLuongNV\TinhLuongNV.csproj", "{BEC28796-53B6-46C5-9DE9-B5A7C4C927E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDT", "..\CDTDebug\CDT.csproj", "{A48C0424-B640-40F9-9F72-9D96667B6160}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97F390F0-DACB-440E-B7DD-202BB25032F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97F390F0-DACB-440E-B7DD-202BB25032F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97F390F0-DACB-440E-B7DD-202BB25032F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97F390F0-DACB-440E-B7DD-202BB25032F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC28796-53B6-46C5-9DE9-B5A7C4C927E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC28796-53B6-46C5-9DE9-B5A7C4C927E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC28796-53B6-46C5-9DE9-B5A7C4C927E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC28796-53B6-46C5-9DE9-B5A7C4C927E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A48C0424-B640-40F9-9F72-9D96667B6160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A48C0424-B640-40F9-9F72-9D96667B6160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A48C0424-B640-40F9-9F72-9D96667B6160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A48C0424-B640-40F9-9F72-9D96667B6160}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
