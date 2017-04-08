@@ -36,7 +36,7 @@ namespace TinhLuongGVCT
             DataTable dt = db.GetDataTable(sql);
 
             cbChiNhanh.DataSource = dt;
-            cbChiNhanh.DisplayMember = "TenBP";
+            cbChiNhanh.DisplayMember = "MaBP";
             cbChiNhanh.ValueMember = "MaBP";
 
         }
