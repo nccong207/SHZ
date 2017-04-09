@@ -19,11 +19,11 @@ namespace TaoPhieuChi
         public void ExecuteBefore()
         {
             DataRow drMaster = data.DsData.Tables[0].Rows[data.CurMasterIndex];
-            TaoPhieuChiPL(drMaster);
 
             if ((drMaster.RowState == DataRowState.Added || drMaster.RowState == DataRowState.Modified)
                 && drMaster["SoPC"].ToString() == "")
             {
+                TaoPhieuChiPL(drMaster);
                 drMaster["SoPC"] = blFlag ? sopc : string.Empty;
             }
         }
