@@ -1,10 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using CDTDatabase;
 using CDTLib;
 using Plugins;
 using System.Data;
+using DevExpress.XtraEditors;
 
 
 namespace CapNhatThanhToan
@@ -14,6 +15,7 @@ namespace CapNhatThanhToan
         private InfoCustomData info = new InfoCustomData(IDataType.MasterDetailDt);
         private DataCustomData data;
         Database db = Database.NewDataDatabase();
+        private bool isUpdateOfUser = true;
         #region ICData Members
 
         public DataCustomData Data
@@ -23,6 +25,12 @@ namespace CapNhatThanhToan
 
         public void ExecuteAfter()
         {
+            if (!isUpdateOfUser)
+            {
+                info.Result = false;
+                return;
+            }
+
             data.DbData.EndMultiTrans();           
             string MaDT = "";
             if(data.CurMasterIndex < 0)
@@ -60,6 +68,40 @@ namespace CapNhatThanhToan
 
         public void ExecuteBefore()
         {
+            //check quyen cua user
+            string isAdmin = Config.GetValue("Admin").ToString();
+
+            DataRow drMainMaster = data.DsData.Tables[0].Rows[data.CurMasterIndex];
+            if (drMainMaster.RowState == DataRowState.Modified)
+            {
+                bool check = true;
+                //Kiem tra quyen admin
+                if (!Convert.ToBoolean(isAdmin))
+                {
+                    //Quyen dc update khi khong phai la Admin
+                    var isUpdate = data.DrTable["sUpdate"].ToString();
+                    
+                    if (String.IsNullOrEmpty(isUpdate) || !Convert.ToBoolean(isUpdate))
+                    {
+                        check = false;
+                    }
+
+                    //Kiem tra ngay dang ky voi ngay hien tai
+                    DateTime ngayDK = Convert.ToDateTime(drMainMaster["NgayCT"].ToString());
+                    if (ngayDK.Date != DateTime.Today.Date)
+                    {
+                        check = false;
+                    }
+                }
+
+                isUpdateOfUser = check;
+                if (!check)
+                {
+                    XtraMessageBox.Show("Chỉ được sửa thông tin phiếu thu trong ngày hôm nay.",
+                            Config.GetValue("PackageName").ToString());
+                    info.Result = false;
+                }
+            }
             
         }
 
