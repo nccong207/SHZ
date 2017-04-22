@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BED6BCE6-77E7-4C29-8427-F02479A7E96B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KiemTraQuyenUser</RootNamespace>
+    <AssemblyName>MT32_MdDt_ICD_KiemTraQuyenUser</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CBSControls">
+      <HintPath>..\..\..\CDTLibaries\CBSControls.dll</HintPath>
+    </Reference>
+    <Reference Include="CDTControl">
+      <HintPath>..\..\..\CDTLibaries\CDTControl.dll</HintPath>
+    </Reference>
+    <Reference Include="CDTDatabase">
+      <HintPath>..\..\..\CDTLibaries\CDTDatabase.dll</HintPath>
+    </Reference>
+    <Reference Include="CDTLib">
+      <HintPath>..\..\..\CDTLibaries\CDTLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CDTSystem">
+      <HintPath>..\..\..\CDTLibaries\CDTSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="DataFactory">
+      <HintPath>..\..\..\CDTLibaries\DataFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v7.2, Version=7.2.5.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v7.2, Version=7.2.5.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
+    <Reference Include="ErrorManager">
+      <HintPath>..\..\..\CDTLibaries\ErrorManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Fomula">
+      <HintPath>..\..\..\CDTLibaries\Fomula.dll</HintPath>
+    </Reference>
+    <Reference Include="FormFactory">
+      <HintPath>..\..\..\CDTLibaries\FormFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="NumberReader">
+      <HintPath>..\..\..\CDTLibaries\NumberReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugins">
+      <HintPath>..\..\..\CDTLibaries\Plugins.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="KiemTraQuyenUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
