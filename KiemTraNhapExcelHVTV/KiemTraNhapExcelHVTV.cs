@@ -19,8 +19,6 @@ namespace KiemTraNhapExcelHVTV
         {
             _data.BsMain.DataSourceChanged += new EventHandler(BsMain_DataSourceChanged);
             BsMain_DataSourceChanged(_data.BsMain, new EventArgs());
-
-            //you still need to repeat the definition of RowChanged event here again to run it in the first time the form load
         }
 
         private void BsMain_DataSourceChanged(object sender, EventArgs e)
@@ -41,7 +39,7 @@ namespace KiemTraNhapExcelHVTV
             string newPhone = addedRow["DienThoai"] != null ? addedRow["DienThoai"].ToString() : "";
             if (!string.IsNullOrEmpty(newName))
             {
-                DataRow[] dataRows = (_data.BsMain.DataSource as DataTable).Select("TenHV = '" + newName + "' and DienThoai = '" + newPhone + "'");
+                DataRow[] dataRows = (_data.BsMain.DataSource as DataTable).Select("TenHV = '" + newName + "' and DienThoai = '" + newPhone + "'", null, DataViewRowState.Unchanged);
                 if (dataRows.Length > 0)
                 {
 
@@ -49,7 +47,7 @@ namespace KiemTraNhapExcelHVTV
 
                     if (XtraMessageBox.Show(msg, Config.GetValue("PackageName").ToString(), MessageBoxButtons.YesNo)
                         == DialogResult.No)
-                        //xoa học viên
+                        //huy bo them hoc vien..
                         e.Row.RejectChanges();
                 }
 
