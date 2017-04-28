@@ -12,6 +12,11 @@ namespace KiemTraQuyenUser
     {
         private InfoCustomData _info;
         private DataCustomData _data;
+
+        public KiemTraQuyenUser()
+        {
+            _info = new InfoCustomData(IDataType.MasterDetailDt);
+        }
         public void ExecuteBefore()
         {
             string isAdmin = Config.GetValue("Admin").ToString();
