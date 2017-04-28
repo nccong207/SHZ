@@ -17,12 +17,14 @@ namespace KiemTraNhapExcelHVTV
         Database db = Database.NewDataDatabase();
         public void AddEvent()
         {
-            DataSet dsData = _data.BsMain.DataSource as DataSet;
-
+            //the datasource in this case is DataTable, not dataset, you knew already, why you write that:
+            //DataSet dsData = _data.BsMain.DataSource as DataSet;
+            
 
             _data.BsMain.DataSourceChanged += new EventHandler(BsMain_DataSourceChanged);
             BsMain_DataSourceChanged(_data.BsMain, new EventArgs());
 
+            //you still need to repeat the definition of RowChanged event here again to run it in the first time the form load
             //if (dsData == null)
             //    return;
             //dsData.Tables[0].TableNewRow += new DataTableNewRowEventHandler(Check_DuplicateHVTV);
@@ -31,7 +33,18 @@ namespace KiemTraNhapExcelHVTV
         private void BsMain_DataSourceChanged(object sender, EventArgs e)
         {
             DataTable dsData = _data.BsMain.DataSource as DataTable;
-            dsData.TableNewRow += new DataTableNewRowEventHandler(Check_DuplicateHVTV);
+            //use this event instead of TableNewRow
+            dsData.RowChanged += DsDataOnRowChanged;
+            //dsData.TableNewRow += new DataTableNewRowEventHandler(Check_DuplicateHVTV);
+        }
+
+        private void DsDataOnRowChanged(object sender, DataRowChangeEventArgs e)
+        {
+            //check the row is new row:
+            //e.Action == DataRowAction.Add
+
+            //cancel adding row: (please notice you need to cancel the adding row, not the existed row is duplicated like your below code
+            //e.Row.RejectChanges();
         }
 
         private void Check_DuplicateHVTV(object sender, DataTableNewRowEventArgs e)
@@ -42,6 +55,7 @@ namespace KiemTraNhapExcelHVTV
             DataRowView seletedRow = _data.BsMain.Current as DataRowView;
 
             DataRow test = e.Row;
+            test.RejectChanges();
             if (seletedRow == null)
             {
                 return;                
@@ -66,7 +80,7 @@ namespace KiemTraNhapExcelHVTV
 
                         if (XtraMessageBox.Show(msg, Config.GetValue("PackageName").ToString(), MessageBoxButtons.YesNo)
                             == DialogResult.No)
-                            //xoa học viên
+                            //xoa học viên => cực kỳ tầm bậy vì yêu cầu là kiểm tra trùng thì không add, chứ ko phải trùng thì xóa cái row có sẵn trong database mà trùng với row đang add :((
                            dataRows[0].Delete();
                         else
                         {
