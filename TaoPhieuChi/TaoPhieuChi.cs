@@ -44,7 +44,7 @@ namespace TaoPhieuChi
 
             DataRow detailBP = GetDMBP(maCN);
             string diachi = detailBP["DiaChi"].ToString();
-            string nhomluong = drMaster["NhomLuong"].ToString();
+            string nhomluong = drMaster["NhomLuong"].ToString().Equals("CT") ? "CT" : drMaster["NhomLuong"].ToString().Equals("GV") ? "LUONGGV" : "LUONGNV";
             string diengiai = "Lương T." + drMaster["Thang"].ToString();
             double tongtien = Double.Parse(drMaster["TongTien"].ToString());
             string tenBp = detailBP["TenKH"].ToString();
@@ -78,8 +78,14 @@ namespace TaoPhieuChi
                 foreach (PhieuChi phieuChi in PhieuChiLst)
                 {
                     string dt12id = Guid.NewGuid().ToString();
-                    DataRow detailBPPC = GetDMBP(phieuChi.MaCN);
-                    string tenBpPC = detailBPPC["TenKH"].ToString();
+
+                    string tenBpPC = null;
+                    if (!string.IsNullOrEmpty(phieuChi.MaCN))
+                    {
+                        DataRow detailBPPC = GetDMBP(phieuChi.MaCN);
+                        tenBpPC = detailBPPC["TenKH"].ToString();
+                    }
+                   
 
                     sqlM12 += string.Format(@"INSERT INTO DT12(DT12ID,MT12ID,DienGiaiCt,MaKHCt,PsNT,Ps,TkNo,MaPhi,MaVV,MaBP,MaSP,MaCongTrinh,TenKHCt)
                                              VALUES ('{0}','{1}',N'{2}','{3}',0.0,'{4}',1111, NULL,'{5}','{6}', NULL, NULL,N'{7}');"
