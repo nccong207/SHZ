@@ -44,7 +44,8 @@ namespace TaoPhieuChi
 
             DataRow detailBP = GetDMBP(maCN);
             string diachi = detailBP["DiaChi"].ToString();
-            string nhomluong = drMaster["NhomLuong"].ToString().Equals("CT") ? "CT" : drMaster["NhomLuong"].ToString().Equals("GV") ? "LUONGGV" : "LUONGNV";
+            string nhomluong = drMaster["NhomLuong"].ToString().Equals("CT") ? "CT" :drMaster["NhomLuong"].ToString().Equals("GV") ? "LUONGGV" : "LUONGNV";
+            string tkno = GetTKNo(nhomluong);
             string diengiai = "Lương T." + drMaster["Thang"].ToString();
             double tongtien = Double.Parse(drMaster["TongTien"].ToString());
             string tenBp = detailBP["TenKH"].ToString();
@@ -88,8 +89,8 @@ namespace TaoPhieuChi
                    
 
                     sqlM12 += string.Format(@"INSERT INTO DT12(DT12ID,MT12ID,DienGiaiCt,MaKHCt,PsNT,Ps,TkNo,MaPhi,MaVV,MaBP,MaSP,MaCongTrinh,TenKHCt)
-                                             VALUES ('{0}','{1}',N'{2}','{3}',0.0,'{4}',1111, NULL,'{5}','{6}', NULL, NULL,N'{7}');"
-                                            , dt12id, mt12id, "Chi tiền lương", phieuChi.MaCN, phieuChi.Money, "LUONGGV", phieuChi.MaCN, tenBpPC);
+                                             VALUES ('{0}','{1}',N'{2}','{3}',0.0,'{4}','{5}', NULL,'{6}','{7}', NULL, NULL,N'{8}');"
+                                            , dt12id, mt12id, "Chi tiền lương", phieuChi.MaCN, phieuChi.Money, tkno, "LUONGGV", phieuChi.MaCN, tenBpPC);
                 }
             }
 
@@ -139,6 +140,18 @@ namespace TaoPhieuChi
             DataTable dt = db.GetDataTable(sqlDMBP);
             if (dt.Rows.Count > 0)
                 return dt.Rows[0];
+            else
+            {
+                return null;
+            }
+        }
+
+        private string GetTKNo(string maMV)
+        {
+            string sqlDMNV = string.Format("SELECT *  FROM DMNV WHERE MaNV = '{0}'", maMV);
+            DataTable dt = db.GetDataTable(sqlDMNV);
+            if (dt.Rows.Count > 0)
+                return dt.Rows[0]["TK1"].ToString();
             else
             {
                 return null;
