@@ -64,12 +64,28 @@ namespace TinhLuongGVCT
                 _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["Thang"], spinThang.EditValue);
                 _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["MaLop"], row["MaLop"]);
                 _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["MaGV"], row["MaGV"]);
+                _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["LuongCLTT"], GetLuongConLaiThangTruoc(spinThang.EditValue.ToString(), row["MaLop"].ToString(), row["MaGV"].ToString()));
                 _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["LuongGio"], row["GLuong"].ToString() != "" ? row["GLuong"] : 0);
                 if (row["PCXe"].ToString() != "")
                     _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["PCXe"], row["PCXe"]);
                 _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["Nam"], nam);
             }
             _gvDetail.BestFitColumns();
+        }
+
+        private string GetLuongConLaiThangTruoc(string curThang, string malop, string maGv)
+        {
+            int thang = 0;
+            int.TryParse(curThang, out thang);
+            if (thang == 0 || thang > 12 || thang < 1) return "0";
+
+            string sql = string.Format("SELECT * from LuongGVCT WHERE MaLop = '{0}' and MaGV = '{1}' and Thang = {2}", malop, maGv, thang-1);
+            DataTable dt = db.GetDataTable(sql);
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["LuongCL"].ToString();
+            }
+            return "0";
         }
     }
 }
