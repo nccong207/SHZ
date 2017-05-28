@@ -21,6 +21,7 @@ namespace TinhLuongGVCT
             _gvDetail = gvDetail;
         }
         GridView _gvDetail;
+        DataTable _gvDetailCurrentMonthView;
         Database db = Database.NewDataDatabase();
         public int iThang = 0;
         public int iNam = 0;
@@ -45,6 +46,10 @@ namespace TinhLuongGVCT
         {
             int nam = DateTime.Today.Year;
             iThang = int.Parse(spinThang.EditValue.ToString());
+            string sqlData = string.Format("SELECT * from LuongGVCT WHERE Thang = {0}", iThang - 1);
+            _gvDetailCurrentMonthView = db.GetDataTable(sqlData);
+
+
             iChiNhanh = cbChiNhanh.SelectedValue.ToString();
             iNam = Int32.Parse(Config.GetValue("NamLamViec").ToString());
             if (Config.GetValue("NamLamViec") != null)
@@ -79,11 +84,11 @@ namespace TinhLuongGVCT
             int.TryParse(curThang, out thang);
             if (thang == 0 || thang > 12 || thang < 1) return "0";
 
-            string sql = string.Format("SELECT * from LuongGVCT WHERE MaLop = '{0}' and MaGV = '{1}' and Thang = {2}", malop, maGv, thang-1);
-            DataTable dt = db.GetDataTable(sql);
-            if (dt.Rows.Count > 0)
+            string sql = string.Format("MaLop = '{0}' and MaGV = '{1}'", malop, maGv);
+            DataRow[] drs = _gvDetailCurrentMonthView.Select(sql);
+            if (drs.Length > 0)
             {
-                return dt.Rows[0]["LuongCL"].ToString();
+                return drs[0]["LuongCL"].ToString();
             }
             return "0";
         }
