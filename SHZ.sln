@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KiemTraQuyenUser", "KiemTra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KiemTraNhapExcelHVTV", "KiemTraNhapExcelHVTV\KiemTraNhapExcelHVTV.csproj", "{4E0DA1A7-2C7C-4923-B310-2F611BD20AC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapNhatThanhToan", "CapNhatThanhToan\CapNhatThanhToan\CapNhatThanhToan.csproj", "{FD9028EF-A36C-49B3-87B9-8CD32B163E60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{4E0DA1A7-2C7C-4923-B310-2F611BD20AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E0DA1A7-2C7C-4923-B310-2F611BD20AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E0DA1A7-2C7C-4923-B310-2F611BD20AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD9028EF-A36C-49B3-87B9-8CD32B163E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9028EF-A36C-49B3-87B9-8CD32B163E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9028EF-A36C-49B3-87B9-8CD32B163E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9028EF-A36C-49B3-87B9-8CD32B163E60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

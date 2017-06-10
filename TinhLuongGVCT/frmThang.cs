@@ -21,8 +21,8 @@ namespace TinhLuongGVCT
             _gvDetail = gvDetail;
         }
         GridView _gvDetail;
-        DataTable _gvDetailMonthBefore;
-        DataTable _DtLopHocList;
+        DataTable _dtLuongThangTruoc;
+        DataTable _dtDMHVCT;
         Database db = Database.NewDataDatabase();
         public int iThang = 0;
         public int iNam = 0;
@@ -53,11 +53,11 @@ namespace TinhLuongGVCT
             int dataNam = iThang == 1 ? iNam - 1 : iNam;
             int dataThang = iThang == 1 ? 12 : iThang - 1;
             string sqlData = string.Format("SELECT * from LuongGVCT WHERE Thang = {0}  and Nam = {1} ", dataThang, dataNam);
-            _gvDetailMonthBefore = db.GetDataTable(sqlData);
+            _dtLuongThangTruoc = db.GetDataTable(sqlData);
 
             //Get data lop hoc
             string lophocsql = string.Format("select * from DMHVCT WHERE MONTH(NgayBD) = {0} and YEAR(NgayBD) = {1}", iThang, iNam);
-            _DtLopHocList = db.GetDataTable(lophocsql);
+            _dtDMHVCT = db.GetDataTable(lophocsql);
 
             iChiNhanh = cbChiNhanh.SelectedValue.ToString();
            
@@ -98,7 +98,7 @@ namespace TinhLuongGVCT
             if (thang == 0 || thang > 12 || thang < 1) return "0";
 
             string sql = string.Format("MaLop = '{0}' and MaGV = '{1}'", malop, maGv);
-            DataRow[] drs = _gvDetailMonthBefore.Select(sql);
+            DataRow[] drs = _dtLuongThangTruoc.Select(sql);
             if (drs.Length > 0)
             {
                 return drs[0]["LuongCL"].ToString();
@@ -107,7 +107,7 @@ namespace TinhLuongGVCT
             {
                 //Trường hợp lớp học mới vừa được tạo thì lấy lương dư hiện tại.
                 string sqlFilter = string.Format("MaLop = '{0}'", malop);
-                DataRow[] dtlophoc = _DtLopHocList.Select(sqlFilter);
+                DataRow[] dtlophoc = _dtDMHVCT.Select(sqlFilter);
 
                 if (dtlophoc.Length > 0)
                 {
