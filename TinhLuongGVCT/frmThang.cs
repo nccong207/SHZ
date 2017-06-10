@@ -22,6 +22,7 @@ namespace TinhLuongGVCT
         }
         GridView _gvDetail;
         DataTable _gvDetailMonthBefore;
+        DataTable _DtLopHocList;
         Database db = Database.NewDataDatabase();
         public int iThang = 0;
         public int iNam = 0;
@@ -54,6 +55,9 @@ namespace TinhLuongGVCT
             string sqlData = string.Format("SELECT * from LuongGVCT WHERE Thang = {0}  and Nam = {1} ", dataThang, dataNam);
             _gvDetailMonthBefore = db.GetDataTable(sqlData);
 
+            //Get data lop hoc
+            string lophocsql = string.Format("select * from DMHVCT WHERE MONTH(NgayBD) = {0} and YEAR(NgayBD) = {1}", iThang, iNam);
+            _DtLopHocList = db.GetDataTable(lophocsql);
 
             iChiNhanh = cbChiNhanh.SelectedValue.ToString();
            
@@ -102,11 +106,12 @@ namespace TinhLuongGVCT
             else
             {
                 //Trường hợp lớp học mới vừa được tạo thì lấy lương dư hiện tại.
-                sql = string.Format("select * from DMHVCT WHERE MONTH(NgayBD) = {0} and YEAR(NgayBD) = {1} AND MaLop = '{2}'", thang, nam, malop);
-                var lophoc = db.GetDataTable(sql);
-                if (lophoc.Rows.Count > 0)
+                string sqlFilter = string.Format("MaLop = '{0}'", malop);
+                DataRow[] dtlophoc = _DtLopHocList.Select(sqlFilter);
+
+                if (dtlophoc.Length > 0)
                 {
-                    return lophoc.Rows[0]["LuongDu"].ToString();
+                    return dtlophoc[0]["LuongDu"].ToString();
                 }
             }
             return "0";
