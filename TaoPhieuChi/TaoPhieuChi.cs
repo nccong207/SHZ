@@ -44,7 +44,7 @@ namespace TaoPhieuChi
 
             DataRow detailBP = GetDMBP(maCN);
             string diachi = detailBP["DiaChi"].ToString();
-            string nhomluong = drMaster["NhomLuong"].ToString().Equals("CT") ? "CT" :drMaster["NhomLuong"].ToString().Equals("GV") ? "LUONGGV" : "LUONGNV";
+            string nhomluong = drMaster["NhomLuong"].ToString().Equals("CT") || drMaster["NhomLuong"].ToString().Equals("GV") ? "LUONGGV" : "LUONGNV";
             string tkno = GetTKNo(nhomluong);
             string diengiai = "Lương T." + drMaster["Thang"].ToString();
             double tongtien = Double.Parse(drMaster["TongTien"].ToString());
@@ -59,8 +59,8 @@ namespace TaoPhieuChi
             List<PhieuChi> PhieuChiLst = new List<PhieuChi>();
             foreach (DataRow rowView in dv)
             {
-                string maCN2 = rowView["MaCN"].ToString();
-                var item = PhieuChiLst.Find(s => s.MaCN.Equals(maCN2));
+                string maCN2 = rowView["MaCN"].ToString().Trim();
+                var item = PhieuChiLst.Find(s => s.MaCN.Trim().Equals(maCN2));
                 if (item != null)
                 {
                     item.Money += Convert.ToDouble(rowView["TongLuong"].ToString());
@@ -87,7 +87,6 @@ namespace TaoPhieuChi
                         tenBpPC = detailBPPC["TenKH"].ToString();
                     }
                    
-
                     sqlM12 += string.Format(@"INSERT INTO DT12(DT12ID,MT12ID,DienGiaiCt,MaKHCt,PsNT,Ps,TkNo,MaPhi,MaVV,MaBP,MaSP,MaCongTrinh,TenKHCt)
                                              VALUES ('{0}','{1}',N'{2}','{3}',0.0,'{4}','{5}', NULL,'{6}','{7}', NULL, NULL,N'{8}');"
                                             , dt12id, mt12id, "Chi tiền lương", phieuChi.MaCN, phieuChi.Money, tkno, "LUONGGV", phieuChi.MaCN, tenBpPC);
