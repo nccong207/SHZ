@@ -95,12 +95,12 @@ namespace TaoPhieuChi
 
             //Insert BLTK
             sqlM12 += string.Format(@"INSERT INTO BLTK (MaSP, MaCongTrinh, MaCT, MTID, SoCT, NgayCT, DienGiai, MaKH, TenKH, TK, TKDu, PsNo, PsCo, NhomDK, MTIDDT, MaBP, MaVV, MaPhi, PsNoNT, PsCoNT, MaNT, OngBa, TyGia)
-                                        SELECT  d.MaSP, d.MaCongTrinh, m.MaCT, m.MT12ID, m.SoCT, m.NgayCT, d.DienGiaiCt, d.MaKHCt, d.TenKHCt, d.TkNo, m.TkCo, d.Ps, 0, 'PC', d.DT12ID, d.MaBP, d.MaVV, d.MaPhi, d.PsNT, 0.0, m.MaNT, m.OngBa, m.TyGia
+                                        SELECT  d.MaSP, d.MaCongTrinh, m.MaCT, m.MT12ID, m.SoCT, m.NgayCT, d.DienGiaiCt, d.MaKHCt, d.TenKHCt, d.TkNo, m.TkCo, d.Ps, 0, 'PC11', d.DT12ID, d.MaBP, d.MaVV, d.MaPhi, d.PsNT, 0.0, m.MaNT, m.OngBa, m.TyGia
                                         FROM    DT12 AS d INNER JOIN MT12 AS m ON d.MT12ID = m.MT12ID
                                         WHERE	m.MT12ID = '{0}';
 
                                     INSERT INTO BLTK(MaSP, MaCongTrinh, MaCT, MTID, SoCT, NgayCT, DienGiai, MaKH, TenKH, TK, TKDu, PsNo, PsCo, NhomDK, MTIDDT, MaBP, MaVV, MaPhi, PsNoNT, PsCoNT, MaNT, OngBa, TyGia)
-                                        SELECT  d.MaSP,  d.MaCongTrinh, m.MaCT, m.MT12ID, m.SoCT, m.NgayCT, d.DienGiaiCt, m.MaKH, m.TenKH, m.TKCo, d.TkNo, 0.0, d.Ps, 'PC', d.DT12ID, d.MaBP, d.MaVV, d.MaPhi, 0.0, d.PsNT, m.MaNT, m.OngBa, m.TyGia
+                                        SELECT  d.MaSP,  d.MaCongTrinh, m.MaCT, m.MT12ID, m.SoCT, m.NgayCT, d.DienGiaiCt, d.MaKHCt, d.TenKHCt, m.TKCo, d.TkNo, 0.0, d.Ps, 'PC12', d.DT12ID, d.MaBP, d.MaVV, d.MaPhi, 0.0, d.PsNT, m.MaNT, m.OngBa, m.TyGia
                                         FROM    DT12 AS d INNER JOIN MT12 AS m ON d.MT12ID = m.MT12ID
                                         WHERE	m.MT12ID = '{0}';", mt12id);
             db.BeginMultiTrans();
