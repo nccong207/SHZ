@@ -69,7 +69,7 @@ namespace TinhLuongGVCT
                 this.Close();
                 return;
             }
-            string sql = @"Select * From DMHVCT HV Where LuongDu <> 0 and MaCN = '" + iChiNhanh  + "'";
+            string sql = @"Select * From DMHVCT HV Where LuongDu > 100 and MaCN = '" + iChiNhanh  + "'";
             DataTable dt = db.GetDataTable(sql);
             this.Close();
             foreach (DataRow row in dt.Rows)
