@@ -81,6 +81,7 @@ namespace TinhLuongGVCT
                     _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["MaLop"], row["MaLop"]);
                     _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["MaGV"], row["MaGV"]);
                     _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["MaCN"], row["MaCN"]);
+                    _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["SoGioBuoi"], row["SoGioBuoi"]);
                     _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["LuongCLTT"], GetLuongConLaiThangTruoc(spinThang.EditValue.ToString(), row["MaLop"].ToString(), row["MaGV"].ToString(), iNam));
                     _gvDetail.SetFocusedRowCellValue(_gvDetail.Columns["LuongGio"], row["GLuong"].ToString() != "" ? row["GLuong"] : 0);
                     if (row["PCXe"].ToString() != "")
