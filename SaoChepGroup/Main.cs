@@ -23,7 +23,7 @@ namespace SaoChepGroup
             DataTable data = db.GetDataTable("SELECT DbName, CompanyName FROM sysDatabase WHERE sysSiteID = 18 ORDER BY DbName");
             gridLookUpEdit1.Properties.DataSource = data;
             gridLookUpEdit1.Properties.ValueMember = "DbName";
-            //gridLookUpEdit1.Properties.DisplayMember = "CompanyName";
+            gridLookUpEdit1.Properties.DisplayMember = "DbName";
             gridLookUpEdit1View.Columns["DbName"].Width = 100;
             gridLookUpEdit1View.Columns["CompanyName"].Width = 300;
 
@@ -31,7 +31,7 @@ namespace SaoChepGroup
 
             gridLookUpEdit2.Properties.DataSource = data;
             gridLookUpEdit2.Properties.ValueMember = "DbName";
-            //gridLookUpEdit2.Properties.DisplayMember = "CompanyName";
+            gridLookUpEdit2.Properties.DisplayMember = "DbName";
             gridLookUpEdit2View.Columns["DbName"].Width = 100;
             gridLookUpEdit2View.Columns["CompanyName"].Width = 300;
             gridLookUpEdit2.Properties.PopupFormMinSize = new Size(400, 300);
