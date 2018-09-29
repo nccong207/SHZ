@@ -71,8 +71,8 @@ namespace SaoChepGroup
             {
                 saochepUserSite(manguon, madich);
                 // lọc isgroup = 1
-                DataTable siteIdNguon = db.GetDataTable(string.Format(@"SELECT sysUserSiteID FROM sysUserSite a join sysUser b on a.sysUserID = b.sysUserID WHERE b.IsGroup = 1 and DbName = '{0}'", manguon));
-                DataTable siteIdDich = db.GetDataTable(string.Format("SELECT sysUserSiteID FROM sysUserSite WHERE DbName = '{0}'", madich));
+                DataTable siteIdNguon = db.GetDataTable(string.Format(@"SELECT sysUserSiteID FROM sysUserSite a join sysUser b on a.sysUserID = b.sysUserID WHERE b.IsGroup = 1 and DbName = '{0}' ORDER BY a.sysUserSiteID", manguon));
+                DataTable siteIdDich = db.GetDataTable(string.Format("SELECT sysUserSiteID FROM sysUserSite a join sysUser b on a.sysUserID = b.sysUserID WHERE b.IsGroup = 1 and DbName = '{0}' ORDER BY a.sysUserSiteID", madich));
                 saochepUserMenu(siteIdNguon, siteIdDich);
                 saochepUserTable(siteIdNguon, siteIdDich);
                 saochepUserField(siteIdNguon, siteIdDich);
@@ -85,7 +85,8 @@ namespace SaoChepGroup
             string updateQuery = @"INSERT INTO sysUserSite (sysUserID, sysSiteID, IsAdmin, DbName)
                                    SELECT a.sysUserID, a.sysSiteID, a.IsAdmin, '{0}'
                                    FROM sysUserSite a join sysUser b on a.sysUserID = b.sysUserID
-                                   WHERE b.IsGroup = 1 and  DbName = '{1}'";
+                                   WHERE b.IsGroup = 1 and  DbName = '{1}'
+                                    ORDER BY a.sysUserSiteID";
 
             db.UpdateByNonQuery(string.Format(updateQuery, madich, manguon));
         }
