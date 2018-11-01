@@ -20,7 +20,7 @@ namespace HoiThamHV
         Database db = Database.NewDataDatabase();
         private void frmBCDiemThi_Load(object sender, EventArgs e)
         {
-            string sql = string.Format(@"   select top 4 MaLop,Viet,Nghe,Noi,DiemTB 
+            string sql = string.Format(@"   select MaLop,Viet,Nghe,Noi,DiemTB 
                                             from dmkq where hvid = '{0}' 
                                             order by kqid desc"
                                             , HVID);
