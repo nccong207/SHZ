@@ -79,14 +79,20 @@
     <Reference Include="DevExpress.XtraLayout.v7.2, Version=7.2.5.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v7.2, Version=7.2.5.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
     <Reference Include="DevExpress.XtraTreeList.v7.2, Version=7.2.5.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL" />
-    <Reference Include="ErrorManager, Version=1.0.5449.20387, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="ErrorManager, Version=1.0.6825.15095, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ErrorManager.dll</HintPath>
+    </Reference>
     <Reference Include="Fomula, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="FormFactory, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86" />
     <Reference Include="HtmlHelp, Version=0.4.4213.38109, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Linhtinh\HtmlHelp\HtmlHelp\bin\Debug\HtmlHelp.dll</HintPath>
     </Reference>
-    <Reference Include="Plugins, Version=1.0.5476.30833, Culture=neutral, processorArchitecture=x86" />
+    <Reference Include="Plugins, Version=1.0.6825.15097, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Plugins.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
