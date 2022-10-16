@@ -80,6 +80,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SHZCommon\SHZCommon.csproj">
+      <Project>{E70F322F-2D3A-457D-AD07-1F9DA1D724E0}</Project>
+      <Name>SHZCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

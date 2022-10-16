@@ -57,6 +57,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HVBaoLuu", "HVBaoLuu\HVBaoL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayThuongCS", "LayThuongCS\LayThuongCS.csproj", "{97F390F0-DACB-440E-B7DD-202BB25032F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HVChuyenLop", "HVChuyenLop\HVChuyenLop.csproj", "{88490706-CF60-4411-9BF1-3A8EAA7B4457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHZCommon", "SHZCommon\SHZCommon.csproj", "{E70F322F-2D3A-457D-AD07-1F9DA1D724E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -175,6 +179,14 @@ Global
 		{97F390F0-DACB-440E-B7DD-202BB25032F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97F390F0-DACB-440E-B7DD-202BB25032F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97F390F0-DACB-440E-B7DD-202BB25032F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88490706-CF60-4411-9BF1-3A8EAA7B4457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88490706-CF60-4411-9BF1-3A8EAA7B4457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88490706-CF60-4411-9BF1-3A8EAA7B4457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88490706-CF60-4411-9BF1-3A8EAA7B4457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E70F322F-2D3A-457D-AD07-1F9DA1D724E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E70F322F-2D3A-457D-AD07-1F9DA1D724E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E70F322F-2D3A-457D-AD07-1F9DA1D724E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E70F322F-2D3A-457D-AD07-1F9DA1D724E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
