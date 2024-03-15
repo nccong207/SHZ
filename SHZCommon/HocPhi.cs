@@ -27,7 +27,7 @@ namespace SHZCommon
 
             string sql = string.Format(@"SELECT	TOP 1 hv.TenHV, lh.SoBuoi, 
 		                            HocPhi = hp.HocPhi * (100 - hv.GiamHP) / 100,
-		                            HPDong = hv.BLTruoc - hv.HPNoTruoc + hv.ThucThu,
+		                            HPDong = hv.BLTruoc - hv.HPNoTruoc + hv.ThucThu - hv.BLSoTien,
 		                            HPDu = hv.BLSoTien,
                                     hv.ConLai
                             FROM	MTDK hv

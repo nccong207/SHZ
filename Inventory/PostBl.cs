@@ -99,16 +99,20 @@ namespace Inventory
         private DataTable GetDtConfig()
         {
             string s = "select bl.*, tb1.TableName as blTableName, tb2.TableName as mtTableName, tb3.TableName as dtTableName " +
-                " from sysDataConfig bl, sysTable tb1, sysTable tb2, sysTable tb3 " +
-                " where bl.mtTableID = " + _mtTableID + " and bl.sysTableID *= tb1.sysTableID and bl.mtTableID *= tb2.sysTableID and bl.dtTableID *= tb3.sysTableID";
+                " from sysDataConfig bl left join sysTable tb1 on bl.sysTableID = tb1.sysTableID " +
+                " left join sysTable tb2 on bl.mtTableID = tb2.sysTableID " +
+                " left join sysTable tb3 on bl.dtTableID = tb3.sysTableID" +
+                " where bl.mtTableID = " + _mtTableID;
             Database db = Database.NewStructDatabase();
             return (db.GetDataTable(s));
         }
         private DataTable GetDtConfigDetail(string blConfigID)
         {
             string s = "select bld.*, sf1.FieldName as blFieldName, sf2.FieldName as mtFieldName, sf3.FieldName as dtFieldName " +
-                " from sysDataConfigDt bld, sysField sf1, sysField sf2, sysField sf3 " +
-                " where bld.blConfigID = " + blConfigID + " and bld.blFieldID *= sf1.sysFieldID and bld.mtFieldID *= sf2.sysFieldID and bld.dtFieldID *= sf3.sysFieldID";
+                " from sysDataConfigDt bld left join sysField sf1 on bld.blFieldID = sf1.sysFieldID " +
+                " left join sysField sf2 on bld.mtFieldID = sf2.sysFieldID " +
+                " left join sysField sf3 on bld.dtFieldID = sf3.sysFieldID " +
+                " where bld.blConfigID = " + blConfigID;
             Database db = Database.NewStructDatabase();
             return (db.GetDataTable(s));
         }

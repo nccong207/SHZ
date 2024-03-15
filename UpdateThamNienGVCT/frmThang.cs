@@ -33,11 +33,7 @@ namespace UpdateThamNienGVCT
         private void CapNhatThamNien()
         {
             data.DbData.EndMultiTrans();
-            //string maCN = Config.GetValue("MaCN").ToString();
-            //string sql = "update DMNVien set ThamNienMoi = ThamNien + isnull((select count(*) from (select Thang,GVID from ChamCongGV where Thang <= " + seThang.Text + " group by Thang,GVID) t where t.GVID = ID),0)";
-            //db.UpdateByNonQuery(sql);
-            string nam = Config.GetValue("NamLamViec").ToString();
-            string sql = "update DMNVien set ThamNienMoi = ThamNien + isnull((select count(*) from (select Thang,Nam,MaGV from LuongGVCT where (Nam < '" + nam + "' or (Nam = '" + nam + "' and Thang <= (SELECT  Max(Thang) FROM LuongGVCT WHERE Nam ='"+ nam +"'  )" + ")) group by Thang,Nam,MaGV) t where t.MaGV = DMNVien.MaNV),0) WHERE isCT = 1";
+            string sql = string.Format("exec sp_TinhThamNienMoi");
             db.UpdateByNonQuery(sql);
         }
 

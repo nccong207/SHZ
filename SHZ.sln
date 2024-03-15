@@ -61,6 +61,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HVChuyenLop", "HVChuyenLop\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHZCommon", "SHZCommon\SHZCommon.csproj", "{E70F322F-2D3A-457D-AD07-1F9DA1D724E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBDoanhThu", "PBDoanhThu\PBDoanhThu.csproj", "{516D9B7D-85E8-4BD6-A826-D70F8E278A64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpdateThamNienGVCT", "UpdateThamNienGVCT\UpdateThamNienGVCT.csproj", "{62C064E3-9354-461E-A1F7-E3A9F95728B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -187,6 +191,14 @@ Global
 		{E70F322F-2D3A-457D-AD07-1F9DA1D724E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E70F322F-2D3A-457D-AD07-1F9DA1D724E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E70F322F-2D3A-457D-AD07-1F9DA1D724E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{516D9B7D-85E8-4BD6-A826-D70F8E278A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{516D9B7D-85E8-4BD6-A826-D70F8E278A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{516D9B7D-85E8-4BD6-A826-D70F8E278A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{516D9B7D-85E8-4BD6-A826-D70F8E278A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62C064E3-9354-461E-A1F7-E3A9F95728B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C064E3-9354-461E-A1F7-E3A9F95728B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C064E3-9354-461E-A1F7-E3A9F95728B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C064E3-9354-461E-A1F7-E3A9F95728B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
