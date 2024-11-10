@@ -63,14 +63,14 @@ namespace SHZCommon
             //tính hp dư - hp hoàn
             decimal hpDu = decimal.Parse(dr["HPDu"].ToString());
 
-            decimal tienBL = hp1Buoi * soBuoiCL + hpDu;
+            decimal tienBL = Math.Round(hp1Buoi * soBuoiCL, 0, MidpointRounding.AwayFromZero) + hpDu;
             return RoundNumber(tienBL);
         }
 
         decimal RoundNumber(decimal num)
         {
             num = num / 1000;
-            num = Math.Round(num, 0);
+            num = Math.Round(num, 0, MidpointRounding.AwayFromZero);
             num *= 1000;
             return num;
         }
