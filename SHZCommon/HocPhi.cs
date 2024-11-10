@@ -27,7 +27,7 @@ namespace SHZCommon
 
             string sql = string.Format(@"SELECT	TOP 1 hv.TenHV, lh.SoBuoi, 
 		                            HocPhi = hp.HocPhi * (100 - hv.GiamHP) / 100,
-		                            HPDong = hv.BLTruoc - hv.HPNoTruoc + hv.ThucThu,
+		                            HPDong = hv.BLTruoc - hv.HPNoTruoc + hv.ThucThu - hv.BLSoTien,
 		                            HPDu = hv.BLSoTien,
                                     hv.ConLai
                             FROM	MTDK hv
@@ -63,14 +63,14 @@ namespace SHZCommon
             //tính hp dư - hp hoàn
             decimal hpDu = decimal.Parse(dr["HPDu"].ToString());
 
-            decimal tienBL = hp1Buoi * soBuoiCL + hpDu;
+            decimal tienBL = Math.Round(hp1Buoi * soBuoiCL, 0, MidpointRounding.AwayFromZero) + hpDu;
             return RoundNumber(tienBL);
         }
 
         decimal RoundNumber(decimal num)
         {
             num = num / 1000;
-            num = Math.Round(num, 0);
+            num = Math.Round(num, 0, MidpointRounding.AwayFromZero);
             num *= 1000;
             return num;
         }

@@ -21,6 +21,17 @@ namespace TinhLuongGVCN
         public void AddEvent()
         {
             data.FrmMain.Shown += new EventHandler(FrmMain_Shown);
+            data.FrmMain.KeyDown += new System.Windows.Forms.KeyEventHandler(FrmMain_KeyDown);
+        }
+
+        void FrmMain_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == System.Windows.Forms.Keys.F9)
+            {
+                GridControl gcMain = data.FrmMain.Controls.Find("gcMain", true)[0] as GridControl;
+                FrmThang frm = new FrmThang(gcMain);
+                frm.ShowDialog();
+            }
         }
 
         void FrmMain_Shown(object sender, EventArgs e)
